@@ -44,7 +44,7 @@
                                             </td>
                                             <td class="col-sm-1 col-md-1 text-left"><strong><span id="total_<?php echo $apartman['id']; ?>">0</span> RSD</strong></td>
                                             <td class="col-sm-1 col-md-1">
-                                                <button type="button" class="btn btn-danger" onclick = "obrisiIzkorpe(<?php echo $apartman['id']; ?>)"> Izbaci
+                                                <button type="button" class="btn btn-info" onclick = "obrisiIzkorpe(<?php echo $apartman['id']; ?>)"> Izbaci
                                                 </button></td>
                                         </tr>
 

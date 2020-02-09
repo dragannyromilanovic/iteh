@@ -23,9 +23,9 @@
         <textarea class="form-control" id="opis"  rows="4" placeholder="Opis apartmana" required name="opis"></textarea>
 
         <br/>
-        <label class="col-sm-1 control-label" for="category">grad</label>
+        <label class="col-sm-1 control-label" for="grad">grad</label>
 
-        <select id="category" name="category" class="form-control">
+        <select id="grad" name="grad" class="form-control">
             <?php
             $gradovi = grad::dajGradove();
 

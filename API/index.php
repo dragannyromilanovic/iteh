@@ -45,7 +45,7 @@ Flight::route('POST /obrisi_kupca', function() {
 Flight::route('GET /apartmani_grad/@grad', function($grad) {
     header("Content-Type: application/json; charset=utf-8");
     $db = Flight::db();
-    $db->select("apartman", "apartman.id as apartman_id, apartman.*, grad.*", "grad", "grad", "id", "apartman.category =" . $grad, null);
+    $db->select("apartman", "apartman.id as apartman_id, apartman.*, grad.*", "grad", "grad", "id", "apartman.grad =" . $grad, null);
     $niz = array();
     while ($red = $db->getResult()->fetch_object()) {
         $niz[] = $red;
@@ -87,7 +87,7 @@ Flight::route('GET /statistika_apartmani', function() {
     $JSONprikaz = '{  "cols": [{"label":"Naziv apartmana","type":"string"}, {"label":"Rezervisano","type":"number"}, {"label":"Otkazano","type":"number"}], "rows":[ ';
     foreach ($niz as $key => $value) {
 
-        $JSONprikaz = $JSONprikaz . '{"c":[{"v":"' . $value->title . '"},{"v":' . $value->rezervisano . '},{"v":' . $value->otkazano . '}]}';
+        $JSONprikaz = $JSONprikaz . '{"c":[{"v":"' . $value->title . '"},{"v":' . $value->rezervisano . '},{"v":' . $value->otkazano . '}]},';
     }
 
     echo $JSONprikaz . ']}';

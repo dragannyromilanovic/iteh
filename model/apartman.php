@@ -5,14 +5,11 @@ require_once 'db.php';
 class apartman {
 
 
-    public static function dodaj($title, $sastojci, $picture, $category, $price, $kolicina, $grad) {
+    public static function dodaj($naziv, $opis, $slika, $grad, $cena, $Rezervisano) {
         $con = getConnection();
         $con->open();
 
-        $q = "INSERT INTO apartman (title, opis, picture, category, price, kolicina, grad) VALUES ('" . $title . "', '" . $sastojci . "', '" . $picture . "', " . $category . ", '" . $price . "', '" . $kolicina . "', '" . $grad . "')";
-
-        var_dump($q);
-        exit;
+        $q = "INSERT INTO apartman (title, opis, picture, grad, price, rezervisano) VALUES ('" . $naziv . "', '" . $opis . "', '" . $slika . "', " . $grad . ", '" . $cena . "', '" . $Rezervisano . "')";
 
         if (!$con->query($q)) {
             $con->close();
@@ -42,7 +39,7 @@ class apartman {
         $con = getConnection();
         $con->open();
 
-        if (!$r = $con->query("SELECT * from apartman WHERE category like '" . $id . "'")) {
+        if (!$r = $con->query("SELECT * from apartman WHERE grad like '" . $id . "'")) {
             $con->close();
             return false;
         } else {
@@ -77,10 +74,10 @@ class apartman {
 
 
 
-    public static function izmeni($title, $sastojci, $picture, $category, $price, $kolicina, $grad, $Rezervisano, $id) {
+    public static function izmeni($naziv, $opis, $slika, $cena, $kolicina, $grad, $Rezervisano, $id) {
         $con = getConnection();
         $con->open();
-        $sql = "UPDATE apartman SET title='" . $title . "', opis='" . $sastojci . "', picture='" . $picture . "', grad='" . $grad . "', price='" . $price . "', kolicina='" . $kolicina . "', category='" . $category . "', Rezervisano='" . $Rezervisano . "' WHERE id = " . $id;
+        $sql = "UPDATE apartman SET title='" . $naziv . "', opis='" . $opis . "', picture='" . $slika . "', grad='" . $grad . "', price='" . $cena . "', kolicina='" . $kolicina . "', Rezervisano='" . $Rezervisano . "' WHERE id = " . $id;
 
         if (!$con->query($sql)) {
             $con->close();

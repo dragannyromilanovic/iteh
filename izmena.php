@@ -15,9 +15,8 @@ $apartman = apartman::dajapartman(trim($_GET['id']));
                 <label class="col-sm-1 control-label" for="title">Naziv</label>  <br/>
                 <input id="title" name="title" value="<?php echo $apartman->title; ?>" class="form-control input-sm" required="" type="text">
                 <input type="hidden" name="apartman_id" value="<?php echo $apartman->id;?>">
-
                 <br/>
-        <label class="col-sm-1 control-label" for="kolicina">Kolicina</label>
+        <label class="col-sm-1 control-label" for="kolicina">Povrsina</label>
         <input id="kolicina" name="kolicina" value="<?php echo $apartman->kolicina; ?>" class="form-control input-sm" required="" type="text">
 
         <br/>
@@ -28,7 +27,7 @@ $apartman = apartman::dajapartman(trim($_GET['id']));
                 <br/>
                 <label class="col-sm-1 control-label" for="category">grad</label>
 
-                <select id="category" name="category" class="form-control">
+                <select id="grad" name="grad" class="form-control">
                     <?php
                     $gradovi = grad::dajGradove();
                     while($grad = $gradovi->fetch_object()) { ?>
@@ -57,7 +56,7 @@ $apartman = apartman::dajapartman(trim($_GET['id']));
                 <br/>
                 <label class="col-sm-1 control-label" for="Rezervisano">Rezervisano</label>  <br/>
 
-                <input id="Rezervisano" name="Rezervisano" placeholder="Broj apartmana" class="form-control input-sm" required=""  value="<?php echo $apartman->Rezervisano; ?>"type="number">
+                <input id="Rezervisano" name="Rezervisano" placeholder="Broj apartmana" class="form-control input-sm" required=""  value="<?php echo $apartman->rezervisano; ?>"type="number">
                 <br/>
 
                 <label class="col-sm-1 control-label" for="slika">Slika</label>  <br/>

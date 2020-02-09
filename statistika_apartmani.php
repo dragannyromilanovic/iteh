@@ -46,12 +46,12 @@
 
         $('select').on('change', function() {
             
-            var url = "http://enyro.localhost.com/API/statistika_apartmani"
+            var urlZaPodatke = "http://enyro.localhost.com/API/statistika_apartmani"
             
             if(this.value >= 0 ) url = url + "?grad="+this.value;
             
             var data = $.ajax({
-                url: url,
+                url: urlZaPodatke,
                 dataType: "json",
                 async: false
             }).responseText;

@@ -13,14 +13,12 @@ public static function unosapartmana (){
 
                         $naziv = trim($_POST['title']);
                         $sastojci = trim($_POST['opis']);
-                        $grad = trim($_POST['category']);
+                        $grad = trim($_POST['grad']);
                         $cena = trim($_POST['price']);
                         $slika = trim($slikaapartmana);
-                        $kolicina = trim($_POST['kolicina']);
                         $drzava = trim($_POST['drzava']);
                         $Rezervisano = trim($_POST['Rezervisano']);
-
-                        return apartman::dodaj($naziv, $sastojci, $slika, $grad, $cena, $kolicina, $drzava, $Rezervisano);
+                        return apartman::dodaj($naziv, $sastojci, $slika, $grad, $cena, $Rezervisano, $drzava);
 
 }
 
@@ -34,13 +32,12 @@ public static function izmenaapartmana($apartman_id){
 
                         $naziv = trim($_POST['title']);
                         $sastojci = trim($_POST['opis']);
-                        $grad = trim($_POST['category']);
                         $cena = trim($_POST['price']);
                         $slika = trim($slikaapartmana);
                         $kolicina = trim($_POST['kolicina']);
-                        $drzava = trim($_POST['drzava']);
+                        $grad = trim($_POST['grad']);
                         $Rezervisano = trim($_POST['Rezervisano']);
-                        return apartman::izmeni($naziv, $sastojci, $slika, $grad, $cena, $kolicina, $drzava, $Rezervisano, trim($_POST['apartman_id']));
+                        return apartman::izmeni($naziv, $sastojci, $slika, $cena, $kolicina, $grad, $Rezervisano, trim($_POST['apartman_id']));
 
                 
 }
